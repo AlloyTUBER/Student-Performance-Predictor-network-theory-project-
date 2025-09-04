@@ -11,10 +11,11 @@ features = [
 ]
 target = 'Exam_Score'
 
-# Encode categorical variables
+# Encoding + cleaning data
 df_encoded = pd.get_dummies(df[features + [target]], drop_first=True)
 df_model = df_encoded.dropna()
 
+#spliting data
 X = df_model.drop(target, axis=1)
 y = df_model[target]
 
@@ -38,7 +39,7 @@ from sklearn.metrics import mean_absolute_percentage_error
 
 # Mean Absolute Percentage Error
 mape = mean_absolute_percentage_error(y_test, y_pred) * 100
-print(f"Mean Absolute Percentage Error (MAPE): {mape:.2f}%")
+print(f"Mean Absolute Percentage Error: {mape:.2f}%")
 '''
 
 while(1): #check if roll no. is valid or not
