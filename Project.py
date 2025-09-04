@@ -20,7 +20,7 @@ X = df_model.drop(target, axis=1)
 y = df_model[target]
 
 # Training test split
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=50)
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3)
 
 # Training model
 model = LinearRegression()
@@ -59,3 +59,4 @@ predicted_score = model.predict(student_encoded)
 
 print(f'Name: {df.iloc[idx]['Name']}\tGender: {df.iloc[idx]['Gender']}\tRoll no.: {idx+1}\nAttendence: {df.iloc[idx]['Attendance']}\tEnrollment no: {df.iloc[idx]['Enrollment_No']}\tPrevious Score: {df.iloc[idx]['Previous_Scores']}')
 print(f"Predicted Exam Score for student at index {idx}: {predicted_score[0]:.2f}")
+
