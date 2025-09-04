@@ -41,7 +41,14 @@ mape = mean_absolute_percentage_error(y_test, y_pred) * 100
 print(f"Mean Absolute Percentage Error (MAPE): {mape:.2f}%")
 '''
 
-idx = int(input("Enter roll no. of the student: ")) #Between 1-6607
+while(1): #check if roll no. is valid or not
+    idx = int(input("Enter roll no. of the student: ")) #Between 1-6607
+    if idx<1 or idx>6607:
+        print('INVALID ROLL NO.!!!\n ENTER AGAIN!!')
+        continue
+    else:
+        break
+
 idx -=1
 student_row = df.iloc[idx][features]
 student_df = pd.DataFrame([student_row])
