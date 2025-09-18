@@ -1,14 +1,10 @@
 import pandas as pd
-import numpy as np
-import matplotlib.pyplot as plt
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LinearRegression
 
 df = pd.read_csv("StudentPerformanceFactors_withNames_Enrollment.csv")
 
-features = [
-            'Attendance', 'Previous_Scores'
-]
+features = ['Attendance', 'Previous_Scores']
 target = 'Exam_Score'
 
 # Encoding + cleaning data
@@ -34,13 +30,13 @@ threshold = 40
 y_test_bin = (y_test >= threshold).astype(int)
 y_pred_bin = (y_pred >= threshold).astype(int)
 
-'''
+
 from sklearn.metrics import mean_absolute_percentage_error
 
 # Mean Absolute Percentage Error
 mape = mean_absolute_percentage_error(y_test, y_pred) * 100
 print(f"Mean Absolute Percentage Error: {mape:.2f}%")
-'''
+
 
 while(1): #check if roll no. is valid or not
     idx = int(input("Enter roll no. of the student: ")) #Between 1-6607
@@ -59,4 +55,5 @@ predicted_score = model.predict(student_encoded)
 
 print(f'Name: {df.iloc[idx]['Name']}\tGender: {df.iloc[idx]['Gender']}\tRoll no.: {idx+1}\nAttendence: {df.iloc[idx]['Attendance']}\tEnrollment no: {df.iloc[idx]['Enrollment_No']}\tPrevious Score: {df.iloc[idx]['Previous_Scores']}')
 print(f"Predicted Exam Score for student at index {idx}: {predicted_score[0]:.2f}")
+
 
